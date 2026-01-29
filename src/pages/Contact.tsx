@@ -62,14 +62,14 @@ export default function Contact() {
     const phoneNumber = "919074629789"; // WhatsApp number (no +, no spaces)
 
     const message = `
-📌 *New Consultation Inquiry – EduNest*
+*New Consultation Inquiry – EduNest*
 
-👤 Name: ${formData.name}
-📧 Email: ${formData.email}
-📞 Phone: ${formData.phone}
-🎓 Interest: ${formData.interest}
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Interest: ${formData.interest}
 
-💬 Message:
+Message:
 ${formData.message || "N/A"}
 `;
 
