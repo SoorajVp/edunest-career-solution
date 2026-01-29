@@ -56,20 +56,36 @@ export default function Contact() {
     message: "",
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const phoneNumber = "919074629789"; // WhatsApp number (no +, no spaces)
 
-    setIsSubmitting(false);
+    const message = `
+📌 *New Consultation Inquiry – EduNest*
+
+👤 Name: ${formData.name}
+📧 Email: ${formData.email}
+📞 Phone: ${formData.phone}
+🎓 Interest: ${formData.interest}
+
+💬 Message:
+${formData.message || "N/A"}
+`;
+
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+
+    window.open(whatsappURL, "_blank");
+
     setIsSubmitted(true);
     toast({
-      title: "Message Sent Successfully!",
-      description: "Our counselor will contact you within 24 hours.",
+      title: "Redirecting to WhatsApp",
+      description: "Please send the message to complete your inquiry.",
     });
   };
+
 
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
